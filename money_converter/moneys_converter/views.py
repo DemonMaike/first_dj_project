@@ -6,9 +6,9 @@ import requests
 
 def exchange(request):
     response_val = requests.get('https://api.exchangerate-api.com/v4/latest/USD').json()
-    currencies = response_val.get('rates')
+    currencies = response_val.get("rates")
     
-    if request.metod == 'GET':
+    if request.method == 'GET':
         
         context = {
             'currencies':currencies,

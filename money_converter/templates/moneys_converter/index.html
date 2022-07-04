@@ -16,23 +16,23 @@
                     </div>
                     <div class="form-group col-md-4 mb-0">
                         <label for="from-curr">Отдаем*</label>
-                        <select class="form-control" name="from-curr" id="form-curr" value="{{ from_curr }}">
-                        {% for curr in currencies %}
-                            <option value="{{ curr }}" {% if from_curr == curr %}selected{% endif %}>{{ curr }}</option>
-                        {%  endfor %}
+                        <select class="form-control" name="from-curr" id="from-curr" value="{{ from_curr }}">
+                            {% for curr in currencies %}
+                                <option value="{{ curr }}" {% if from_curr == curr %}selected{% endif %}>{{ curr }}</option>
+                            {%  endfor %}
                         </select>
                     </div>
                     <div class="form-group col-md-4 mb-0">
                         <label for="to-curr">Получаем</label>
                         <select class="form-control" name="to-curr" id="to-curr" value="{{ to_curr }}">
                             {% for curr in currencies %}
-                            <option value="{{ curr }}" {% if to_curr == curr %}selected{% endif %}>{{ curr }}</option>
+                                <option value="{{ curr }}" {% if to_curr == curr %}selected{% endif %} >{{ curr }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
                 <hr>
-                {% if coverted_amount %}
+                {% if converted_amount %}
                     <div class="card col-6 p-0 m-auto">
                         <div class="card-header text-center">
                             <h5>Отдаем <b>{{ from_curr }}</b> Получаем <b>{{ to_curr }}</b></h5>
@@ -42,6 +42,7 @@
                         </div>
                     </div>
                 {% endif %}
+
                 <div class="submit-btn mt-3">
                     <button type="submit" class="btn btn-primary">Перевести валюту</button>
                 </div>
