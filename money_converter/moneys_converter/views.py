@@ -11,24 +11,26 @@ def exchange(request):
     if request.method == 'GET':
         
         context = {
-            'currencies':currencies,
+            'currencies':currencies
+            
         }
         
         return render(request, 'moneys_converter/index.html', context)
     
     if request.method == "POST":
         
-        form_amount = float(request.POST.get('form-amount'))
+        from_amount = float(request.POST.get('from-amount'))
         from_curr = request.POST.get('from-curr')
         to_curr = request.POST.get('to-curr')
         
-        converted_amount = round((currencies[to_curr] / currencies[from_curr]) * float(form_amount), 2)
+        converted_amount = round((currencies[to_curr] / currencies[from_curr]) * float(from_amount), 2)
         
         context = {
-            "form_amount": form_amount,
+            "from_amount": from_amount,
             "from_curr": from_curr,
             "to_curr": to_curr,
             "converted_amount": converted_amount,
+            'currencies': currencies
         }
         
         return render(request, 'moneys_converter/index.html', context)
